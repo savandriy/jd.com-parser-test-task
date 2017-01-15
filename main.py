@@ -36,8 +36,6 @@ def parse_items(url):
     # every iteration of this cycle represents one page with products
     while True:
         # Scroll the page to load all products(due to javascript "lazy load")
-
-
         len_of_page = browser.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
         match = False
         while match == False:
@@ -106,7 +104,6 @@ def parse_items(url):
                 item_name = tree.xpath('//div[@class="itemInfo-wrap"]/div[@class="sku-name"]')[0].text_content()
 
             # Find price of item
-
             try:
                 item_price = tree.xpath('//*[@id="jd-price"]')[0].text_content()[1:]
             except:
